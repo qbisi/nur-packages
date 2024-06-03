@@ -6,11 +6,8 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <nixpkgs> { }, ... }:
 
-let 
-  nixvim-output = import ./pkgs/nixvim/flake.nix {};
-in
 
 {
   # The `lib`, `modules`, and `overlays` names are special
@@ -19,6 +16,7 @@ in
   overlays = import ./overlays; # nixpkgs overlays
 
   example-package = pkgs.callPackage ./pkgs/example-package { };
-  nixvim = nixvim-output.packages.${system}.nvim ;
+  ttf-ms-win11 = pkgs.callPackage ./pkgs/ttf-ms-win11 { };
+
   # ...
 }
