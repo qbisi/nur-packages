@@ -35,7 +35,6 @@ jobs:
           - qbisi
         nixPath:
           - nixpkgs=channel:nixpkgs-unstable
-          - nixpkgs=channel:nixpkgs-24.05
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
