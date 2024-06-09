@@ -15,8 +15,10 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  example-package = pkgs.callPackage ./pkgs/example-package { };
+  # example-package = pkgs.callPackage ./pkgs/example-package { };
   ttf-ms-win11 = pkgs.callPackage ./pkgs/ttf-ms-win11 { };
 
-  # ...
+  # unofficial u-boot packages
+  inherit (pkgs.callPackage ./pkgs/uboot { }) ubootSW799;
+
 }
